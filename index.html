@@ -2,7 +2,47 @@
 <html lang="en" data-theme="dark">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wexford University</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css"></head>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .student-wip{
+    margin-top:24px;padding:28px 24px;border:1px solid var(--line);
+    background:var(--surface);text-align:center;
+  }
+  .student-wip .wip-icon{font-size:2.2rem;display:block;margin-bottom:10px}
+  .student-wip strong{
+    display:block;margin-bottom:8px;font-family:Georgia,"Times New Roman",serif;
+    font-size:1.15rem;letter-spacing:.08em;
+  }
+  .student-wip p{margin:0;color:var(--muted);line-height:1.7}
+  .legal-line{
+    margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);
+    color:#918b82;font-size:.78rem;line-height:1.7;
+  }
+  .legal-link{
+    padding:0;border:0;background:none;color:#d7be8d;cursor:pointer;
+    text-decoration:underline;text-underline-offset:3px;font:inherit;
+  }
+  .terms-modal{
+    display:none;position:fixed;inset:0;z-index:120;align-items:center;justify-content:center;
+    padding:22px;background:rgba(2,6,13,.82);backdrop-filter:blur(8px);
+  }
+  .terms-modal.open{display:flex}
+  .terms-card{
+    position:relative;width:min(780px,100%);max-height:86vh;overflow:auto;padding:34px;
+    border:1px solid var(--gold);background:var(--surface);color:var(--text);
+    box-shadow:0 40px 120px rgba(0,0,0,.5);
+  }
+  .terms-card h2{margin:8px 0 18px;font:500 clamp(2rem,5vw,3.4rem)/1 Georgia,"Times New Roman",serif}
+  .terms-card h3{margin:28px 0 10px;font:500 1.2rem Georgia,"Times New Roman",serif}
+  .terms-card p,.terms-card li{line-height:1.72;color:var(--muted)}
+  .terms-card ul{padding-left:20px}
+  .terms-close{
+    position:absolute;right:14px;top:10px;border:0;background:none;color:var(--text);
+    font-size:1.7rem;cursor:pointer;
+  }
+</style>
+
+</head>
 <body>
 <header class="navbar">
   <a class="brand" href="#home"><img src="wexford-logo.jpg" alt="Wexford crest"><span>WEXFORD UNIVERSITY</span></a>
@@ -61,6 +101,26 @@
   <div class="people-grid" id="peopleGrid"></div>
 </section>
 
+
+<section class="section" id="students">
+  <div class="head">
+    <div class="eyebrow">Student Body</div>
+    <h2>Student Spotlight.</h2>
+    <p class="lead">
+      The Wexford student directory is still being built. Future profiles will include
+      majors, year groups, societies, athletics, Student Council roles, and other campus distinctions.
+    </p>
+    <div class="student-wip">
+      <span class="wip-icon">🎓</span>
+      <strong>WORK IN PROGRESS</strong>
+      <p>
+        We are still creating and adding Wexford students. Please ignore the suspiciously empty
+        student directory for now — more faces are coming.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="life">
   <div class="head"><div class="eyebrow">Student Life</div><h2>Prestige is only half the story.</h2><p class="lead">Students study, compete, gossip, date, panic, celebrate and pretend they have everything under control. Wexford’s immaculate public image contains an extremely ordinary amount of young-adult chaos.</p></div>
   <div class="life-grid">
@@ -107,8 +167,103 @@
   <div class="head"><div class="eyebrow">The Central Idea</div><h2>Wexford is beautiful because it is controlled.</h2><p class="lead">Its lawns are maintained. Its halls endure. Its professors are accomplished. Its students are exceptional. Behind that immaculate appearance are thousands of ambitious people competing for grades, careers, recognition, affection, influence and control. Wexford remembers excellence. Wexford remembers failure. And at Wexford, everyone notices everything.</p></div>
 </section>
 
-<footer class="footer"><div class="footer-grid"><div><h3>Wexford University</h3><p>Prestigious private research university · founded 1872.</p></div><div><h3>Explore</h3><a href="#campus">Campus</a><a href="#academics">Academics</a><a href="#people">People</a></div><div><h3>Student Life</h3><a href="#life">Clubs</a><a href="#traditions">Traditions</a><a href="#stories">Stories</a></div></div></footer>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><h3>Wexford University</h3><p>Prestigious private research university · founded 1872.</p></div>
+    <div><h3>Explore</h3><a href="#campus">Campus</a><a href="#academics">Academics</a><a href="#people">People</a></div>
+    <div><h3>Student Life</h3><a href="#life">Clubs</a><a href="#traditions">Traditions</a><a href="#stories">Stories</a></div>
+  </div>
+  <div class="legal-line">
+    © 2026 VIOLETZXX · Wexford University is a fictional setting ·
+    <button class="legal-link" id="termsButton" type="button">Terms of Use</button>
+  </div>
+</footer>
+
+
+
+<div class="terms-modal" id="termsModal" aria-hidden="true">
+  <div class="terms-card" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <button class="terms-close" id="termsClose" type="button" aria-label="Close Terms of Use">×</button>
+    <div class="eyebrow">Legal</div>
+    <h2 id="termsTitle">Terms of Use & Intellectual Property</h2>
+
+    <p>
+      This website and the fictional Wexford University setting are creative works presented by
+      <strong>VIOLETZXX</strong>.
+    </p>
+
+    <p>
+      Unless otherwise stated, the original Wexford University lore, worldbuilding, setting concepts,
+      written material, scenario concepts, original characters, visual presentation, branding, and other
+      original creative content published on this website belong to VIOLETZXX and are protected by
+      applicable copyright and intellectual-property laws.
+    </p>
+
+    <h3>Permitted Use</h3>
+    <p>You may view this website and share links to it for personal, non-commercial purposes.</p>
+
+    <h3>Not Permitted Without Prior Permission</h3>
+    <ul>
+      <li>Copying or republishing the Wexford lorebook or substantial portions of its text.</li>
+      <li>Reproducing, redistributing, reposting, selling, or commercially exploiting original Wexford content.</li>
+      <li>Copying original characters, character biographies, scenarios, relationships, or distinctive worldbuilding for use in another project.</li>
+      <li>Presenting Wexford material as your own work.</li>
+      <li>Creating unauthorized reproductions or substantially derivative versions of the Wexford setting.</li>
+      <li>Scraping or compiling the site's creative content for redistribution, dataset creation, or commercial use.</li>
+      <li>Removing ownership, copyright, watermark, or attribution notices from original materials.</li>
+    </ul>
+
+    <h3>Character Ownership Notice</h3>
+    <p>
+      VIOLETZXX claims ownership only over characters and creative material that belong to VIOLETZXX.
+      <strong>Julian Blackthorne and Warren White are expressly excluded from this ownership claim.</strong>
+      Rights in those characters remain with their respective creator(s) or rights holder(s). Their inclusion
+      within the Wexford setting does not transfer ownership to VIOLETZXX.
+    </p>
+
+    <p>
+      References to third-party materials, if any, remain the property of their respective owners.
+      Public access to this website or its source repository does not constitute permission to copy,
+      reuse, redistribute, adapt, or commercially exploit its creative contents.
+    </p>
+
+    <p><strong>Wexford University is a fictional institution.</strong></p>
+    <p>© 2026 VIOLETZXX. All rights reserved with respect to original material owned by VIOLETZXX.</p>
+  </div>
+</div>
 
 <div class="modal" id="modal"><div class="modal-card"><button class="close" id="closeModal">×</button><div id="modalBody"></div></div></div>
 <script src="data.js"></script><script src="script.js"></script>
+
+<script>
+(() => {
+  const button = document.getElementById('termsButton');
+  const modal = document.getElementById('termsModal');
+  const close = document.getElementById('termsClose');
+  if (!button || !modal || !close) return;
+
+  const openTerms = () => {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeTerms = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  button.addEventListener('click', openTerms);
+  close.addEventListener('click', closeTerms);
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeTerms();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('open')) closeTerms();
+  });
+})();
+</script>
+
 </body></html>
