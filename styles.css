@@ -54,7 +54,7 @@ h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;letter-spa
 
 /* ===== Hero ===== */
 .hero{min-height:100svh;display:grid;place-items:center;text-align:center;color:#f4ecd9;position:relative;
-  background:linear-gradient(#0a0705aa,#0a0705f0),url("assets/images/hero.jpg") center/cover;
+  background:linear-gradient(#0a0705aa,#0a0705f0),url("hero.jpg") center/cover;
 }
 .hero:after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(transparent,var(--bg));z-index:2}
 .hero-inner{position:relative;z-index:3;padding:120px 24px 130px;max-width:900px}

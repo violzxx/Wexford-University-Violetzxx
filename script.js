@@ -30,7 +30,7 @@ function renderPeople(group="Leadership"){
   const grid=$("#peopleGrid"); grid.innerHTML="";
   DATA.people.filter(p=>group==="All"||p.group===group).forEach(p=>{
     const el=document.createElement("article"); el.className="person";
-    const src=p.embeddedImage || `assets/images/people/${p.slug}.jpeg`;
+    const src=p.embeddedImage || `${p.slug}.jpeg`;
     el.innerHTML=`<div class="portrait"><span>${initials(p.name)}</span><img src="${src}" alt="${p.name}" onerror="this.remove()"></div><h3>${p.name}</h3><p>${p.role}</p>`;
     grid.appendChild(el);
   });
@@ -44,7 +44,7 @@ function renderClubs(){
   const grid=$("#clubGrid");
   DATA.clubs.forEach(c=>{
     const el=document.createElement("article"); el.className="club";
-    const visual=(c.embeddedImage||c.image)?`<img src="${c.embeddedImage || `assets/images/${c.image}`}" alt="${c.name}">`:`<span>✦</span>`;
+    const visual=(c.embeddedImage||c.image)?`<img src="${c.embeddedImage || c.image}" alt="${c.name}">`:`<span>✦</span>`;
     el.innerHTML=`<div class="club-visual">${visual}</div><div class="body"><small>${c.category}</small><h3>${c.name}</h3></div>`;
     grid.appendChild(el);
   })
